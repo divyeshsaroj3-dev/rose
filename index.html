@@ -52,14 +52,14 @@ h2 {
   background: rgba(255,255,255,0.25);
   border: none;
   color: white;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 20px;
   cursor: pointer;
   margin-bottom: 16px;
   font-size: 0.95rem;
 }
 
-/* Slideshow FIXED */
+/* Slideshow */
 .slideshow {
   width: 100%;
   height: 420px;
@@ -79,8 +79,7 @@ h2 {
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain;     /* ✅ NO CUTTING */
-  object-position: center;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 1.3s ease-in-out;
 }
@@ -100,7 +99,7 @@ p {
   opacity: 0.95;
 }
 
-/* Floating Hearts */
+/* Floating hearts */
 .floating span {
   position: absolute;
   bottom: -20px;
@@ -133,9 +132,10 @@ p {
   <h1>Happy Rose Day 🌹</h1>
   <h2>MERI ANNA ❤️</h2>
 
-  <button class="music-btn" onclick="playMusic()">▶ Play Music</button>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶ Play Music</button>
 
   <div class="slideshow">
+    <!-- 31 Images -->
     <img src="image1.jpg" class="active">
     <img src="image2.jpg">
     <img src="image3.jpg">
@@ -143,6 +143,28 @@ p {
     <img src="image5.jpg">
     <img src="image6.jpg">
     <img src="image7.jpg">
+    <img src="image8.jpg">
+    <img src="image9.jpg">
+    <img src="image10.jpg">
+    <img src="image11.jpg">
+    <img src="image12.jpg">
+    <img src="image13.jpg">
+    <img src="image14.jpg">
+    <img src="image15.jpg">
+    <img src="image16.jpg">
+    <img src="image17.jpg">
+    <img src="image18.jpg">
+    <img src="image19.jpg">
+    <img src="image21.jpg">
+    <img src="image22.jpg">
+    <img src="image23.jpg">
+    <img src="image24.jpg">
+    <img src="image25.jpg">
+    <img src="image26.jpg">
+    <img src="image27.jpg">
+    <img src="image28.jpg">
+    <img src="image30.jpg">
+    <img src="image31.jpg">
   </div>
 
   <p>
@@ -154,15 +176,14 @@ p {
   <div class="from">— Yours Forever ❤️</div>
 </div>
 
-<!-- Floating Emojis -->
+<!-- Floating emojis -->
 <div class="floating">
   <span style="left:10%; animation-delay:0s">❤️</span>
-  <span style="left:22%; animation-delay:1s">🌹</span>
-  <span style="left:35%; animation-delay:2s">❤️</span>
-  <span style="left:48%; animation-delay:3s">🌹</span>
-  <span style="left:60%; animation-delay:1.5s">❤️</span>
-  <span style="left:72%; animation-delay:2.5s">🌹</span>
-  <span style="left:85%; animation-delay:4s">❤️</span>
+  <span style="left:25%; animation-delay:1s">🌹</span>
+  <span style="left:40%; animation-delay:2s">❤️</span>
+  <span style="left:55%; animation-delay:3s">🌹</span>
+  <span style="left:70%; animation-delay:1.5s">❤️</span>
+  <span style="left:85%; animation-delay:2.5s">🌹</span>
 </div>
 
 <script>
@@ -174,12 +195,20 @@ setInterval(() => {
   slides[index].classList.remove('active');
   index = (index + 1) % slides.length;
   slides[index].classList.add('active');
-}, 3500);
+}, 3000);
 
-/* Music */
-function playMusic() {
-  const music = document.getElementById('bgMusic');
-  music.play();
+/* Music Play / Pause */
+const music = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.textContent = "⏸ Pause Music";
+  } else {
+    music.pause();
+    btn.textContent = "▶ Play Music";
+  }
 }
 </script>
 
